@@ -80,5 +80,14 @@ arrowRight.addEventListener ('click', () => {
 	
 })
 
+// Écoute du clique sur les dots pour les slides
+// ATTENTION QueryselectorALL recupère une node utiliser FOREACH 
+
+dot.forEach(e => {
+	e.addEventListener('click', () => {
+		slideIndex = e.dataset.index
+		majSlider(slideIndex)
+	})
+})
 
 
