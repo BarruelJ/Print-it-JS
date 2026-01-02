@@ -1,23 +1,23 @@
 const slides = [
 	{
-		"image":"./assets/images/slideshow/slide1.jpg",
+		"image":"slide1.jpg",
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
-		"image":"./assets/images/slideshow/slide2.jpg",
+		"image":"slide2.jpg",
 		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
 	},
 	{
-		"image":"./assets/images/slideshow/slide3.jpg",
+		"image":"slide3.jpg",
 		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
 	},
 	{
-		"image":"./assets/images/slideshow/slide4.png",
+		"image":"slide4.png",
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
 
-
+const srcImg = "./assets/images/slideshow/"
 const arrowLeft  = document.querySelector(".arrow_left")
 const arrowRight = document.querySelector(".arrow_right")
 const img = document.querySelector(".banner-img")
@@ -33,6 +33,11 @@ for (let i=0; i<slides.length; i++) {
 	div.className = "dot"
 	div.dataset.index = i
 	dots.appendChild(div)
+
+// Intégration du click des dots directement dans la boucle de création des dots
+	div.addEventListener ('click', () => {
+		slideIndex = div.dataset.index
+		majSlider(slideIndex) })
 }
 
 const dot = document.querySelectorAll(".dot")
@@ -42,7 +47,7 @@ const dot = document.querySelectorAll(".dot")
 function majSlider (index) {
 
 	slidesData = slides[index]
-	img.src = slidesData.image
+	img.src = srcImg + slidesData.image
 	tagline.innerHTML = slidesData.tagLine
 	dot.forEach(element => {
 	element.classList.remove('dot_selected')   
@@ -78,16 +83,6 @@ arrowRight.addEventListener ('click', () => {
 
 	majSlider(slideIndex)
 	
-})
-
-// Écoute du clique sur les dots pour les slides
-// ATTENTION QueryselectorALL recupère une node utiliser FOREACH 
-
-dot.forEach(e => {
-	e.addEventListener('click', () => {
-		slideIndex = e.dataset.index
-		majSlider(slideIndex)
-	})
 })
 
 
