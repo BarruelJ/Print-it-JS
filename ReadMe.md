@@ -6,3 +6,5 @@
 
 Ce dépôt est une reprise du projet original, avec un historique Git réinitialisé
 pour un usage personnel / pédagogique.
+
+> Lien de mon projet Print it : https://github.com/BarruelJ/Print-it-JS
